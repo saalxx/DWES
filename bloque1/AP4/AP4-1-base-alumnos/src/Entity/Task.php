@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\Table;
+use DateTime;
 
 #[Entity(repositoryClass: TaskRepository::class)]
 #[Table(name: 'tareas')]
@@ -39,10 +40,6 @@ class Task
         return $this->id;
     }
 
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
     public function getTitulo(): string
     {
         return $this->titulo;

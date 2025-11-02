@@ -18,7 +18,7 @@ class TareasController
     $entityManager = new EntityManager();
     $taskRespository = $entityManager->getEntityManager()->getRepository(task::class);
     $tareas = $taskRespository->findAll();
-    $view = new DetalleTarea();
+    $view = new ListadoTareas();
     $view->render($tareas);
     }
 

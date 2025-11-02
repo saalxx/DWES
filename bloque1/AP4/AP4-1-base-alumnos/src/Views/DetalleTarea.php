@@ -2,7 +2,7 @@
 
 namespace AP41\Views;
 
-use AP41\Entity\Tareas;
+use AP41\Entity\Task;
 
 class DetalleTarea
 {
@@ -10,10 +10,10 @@ class DetalleTarea
 
     /**
      * Renderiza la vista de detalle de tarea.
-     * @param Tareas|null $tarea
+     * @param Task|null $tarea
      * @return void
      */
-    public function render(Tareas $tarea = null): void
+    public function render(Task $tarea = null): void
     {
         require_once self::HTML;
     }
