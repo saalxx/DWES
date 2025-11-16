@@ -4,11 +4,15 @@
     "action": "main"
   },
   "/list": {
-    "controller": "TaskController",
+    "controller": "UserController",
     "action": "list"
   },
-  "/task": {
-    "controller": "TaskController",
+  "/user": {
+    "controller": "UserController",
+    "action": "crud"
+  },
+  "/server": {
+    "controller": "ServerController",
     "action": "crud"
   }
 }

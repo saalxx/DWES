@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\OneToOne;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
@@ -22,23 +23,69 @@ class Connection
     #[Id]
     #[GeneratedValue]
     #[Column(name: 'id', type: 'integer')]
-    private $id;
+    private int $id;
 
-    #[ManyToOne(targetEntity: User::class, inversedBy: 'connections')]
-    #[JoinColumn(name: 'user_id', referencedColumnName: 'id', nullable: false)]
-    private ?User $user = null;
-
-    #[Column(name:'ip', type: 'string')]
+    #[Column(name:'ip', type: 'string', length: 39)]
     private string $ip;
 
     #[Column(name:'date_connection', type: 'datetime', nullable: true)]
     private ?DateTime $date_connection = null;
 
-
     #[ManyToOne(targetEntity: Server::class, inversedBy: 'connections')]
     #[JoinColumn(name: 'server_id', referencedColumnName: 'id', nullable: false)]
-    private ?Server $server = null;
+    private Server $server;
 
+    #[ManyToOne(targetEntity: User::class, inversedBy: 'connections')]
+    #[JoinColumn(name: 'user_id', referencedColumnName: 'id', nullable: false)]
+    private User $user;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getUser(): ?\AP52\Entity\User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?\AP52\Entity\User $user): void
+    {
+        $this->user = $user;
+    }
+
+    public function getIp(): string
+    {
+        return $this->ip;
+    }
+
+    public function setIp(string $ip): void
+    {
+        $this->ip = $ip;
+    }
+
+    public function getDateConnection(): ?DateTime
+    {
+        return $this->date_connection;
+    }
+
+    public function setDateConnection(?DateTime $date_connection): void
+    {
+        $this->date_connection = $date_connection;
+    }
+
+    public function getServer(): ?\AP52\Entity\Server
+    {
+        return $this->server;
+    }
+
+    public function setServer(?\AP52\Entity\Server $server): void
+    {
+        $this->server = $server;
+    }
 
 
 }

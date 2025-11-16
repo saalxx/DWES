@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de User</title>
+</head>
+<body>
+    <h1>Detalle de user</h1>
+    <nav>
+        <a href="/">Inicio</a> |
+        <a href="/list">Lista de usuarios</a>
+    </nav>
+    <hr>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>primer apellido</th>
+            <th>pais</th>
+            <th>email</th>
+            <th>nombre</th>
+
+
+        </tr>
+        <tr>
+            <td><?php echo htmlspecialchars($user->getId()) ?></td>
+            <td><?php echo htmlspecialchars($user->getUsername()) ?></td>
+            <td><?php echo htmlspecialchars($user->getFirstSubname()) ?></td>
+            <td><?php echo htmlspecialchars($user->getCountry()) ?></td>
+            <td><?php echo htmlspecialchars($user->getEmail()) ?></td>
+            <td><?php echo htmlspecialchars($user->getName()) ?></td>
+
+
+
+        </tr>
+    </table>
+    <hr>
+    <h3>Acciones CRUD</h3>
+    <ul>
+        <li><a href="/user/create">Insertar nueva tarea</a></li>
+        <li><a href="/user/update/<?php echo $user->getId() ?>">Actualizar esta tarea</a></li>
+        <li><a href="/user/delete/<?php echo $user->getId() ?>">Eliminar esta tarea</a></li>
+        <li><a href="/list">Volver al listado</a></li>
+    </ul>
+</body>
+</html>
