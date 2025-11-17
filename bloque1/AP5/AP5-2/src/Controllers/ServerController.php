@@ -58,7 +58,6 @@ class ServerController
         if (isset($_POST['submit'])) {
             $server = new Server();
             $server->setUrl($_POST['url']);
-            $server->setFirstSubname($_POST['firstSubname']);
             $server->setCountryServer($_POST['countryServer']);
             $server->setDomain($_POST['domain']);
             $em = $this->entityManager->getEntityManager();
@@ -84,7 +83,7 @@ class ServerController
         }
 
         if (isset($_POST['submit'])) {
-            if (!isset($_POST['url']) || !isset($_POST['firstSubname']) ||
+            if (!isset($_POST['url']) ||
                 !isset($_POST['countryServer']) || !isset($_POST['domain']))
             {
                 $this->noRuta();
@@ -93,7 +92,6 @@ class ServerController
 
             $server = $this->repository->find($serverId);
             $server->setUrl($_POST['url']);
-            $server->setFirstSubname($_POST['firstSubname']);
             $server->setCountryServer($_POST['countryServer']);
             $server->setDomain($_POST['domain']);
             $em = $this->entityManager->getEntityManager();

@@ -14,5 +14,17 @@
   "/server": {
     "controller": "ServerController",
     "action": "crud"
+  },
+  "/listServer": {
+    "controller": "ServerController",
+    "action": "list"
+  },
+  "/connection": {
+    "controller": "ConnectionController",
+    "action": "crud"
+  },
+  "/listConnection": {
+    "controller": "ServerController",
+    "action": "list"
   }
 }

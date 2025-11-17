@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $update ? 'Actualizar' : 'Nueva' ?> server</title>
+</head>
+<body>
+<h1><?php echo $update ? 'Actualizar' : 'Nueva' ?> server</h1>
+<nav>
+    <a href="/">Inicio</a> |
+    <a href="/listServer">Lista de server</a>
+</nav>
+<hr>
+<form action="<?php echo $update ? '/server/update/' . $server->getId() : '/server/create' ?>" method="POST">
+    <?php if($update): ?>
+    <input type="hidden" name="id" value="<?php echo $server->getId() ?>">
+    <?php endif; ?>
+
+    <label for="url">:url</label><br>
+    <input type="text" name="url" id="url"
+           value="<?php echo $update ? htmlspecialchars($server->getUrl()) : '' ?>"
+           required maxlength="255" size="100"><br><br>
+
+    <label for="countryServer">countryServer:</label><br>
+    <textarea name="countryServer" id="countryServer" rows="3" cols="100" required><?php echo $update ? htmlspecialchars($server->getCountryServer()) : '' ?></textarea><br><br>
+
+    <label for="domain">domain</label><br>
+    <input type="text" name="domain" id="domain"
+           value="<?php echo $update ? htmlspecialchars($server->getDomain()) : '' ?>"
+           required maxlength="255" size="100"><br><br>
+
+
+
+    <button type="submit" name="submit" value="1"><?php echo $update ? 'Actualizar' : 'Crear' ?> server</button>
+    <?php if(!$update): ?>
+    <button type="reset">Limpiar</button>
+    <?php endif; ?>
+</form>
+</body>
+</html>
+

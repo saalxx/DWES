@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de server</title>
+</head>
+<body>
+<h1>Listado de server</h1>
+<nav>
+    <a href="/">Inicio</a> |
+    <a href="/listServer">Lista de server</a>
+</nav>
+<hr>
+<p><a href="/server/create">➕ Crear Nueva usuario</a></p>
+<table border="1">
+    <tr>
+        <th>url</th>
+        <th>countryServer</th>
+        <th>dominio</th>
+
+    </tr>
+    <?php foreach ($servers as $server): ?>
+    <tr>
+        <td><?php echo htmlspecialchars($server->getUrl())?></td>
+        <td><?php echo htmlspecialchars($server->getDomain()) ?></td>
+
+        <td>
+            <a href="/server/read/<?php echo $server->getId() ?>">Ver Detalle</a> |
+            <a href="/server/update/<?php echo $server->getId() ?>">Actualizar</a> |
+            <a href="/server/delete/<?php echo $server->getId() ?>">Eliminar</a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+</body>
+</html>

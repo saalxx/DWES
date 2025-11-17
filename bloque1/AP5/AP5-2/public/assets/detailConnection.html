@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Server</title>
+</head>
+<body>
+<h1>Detalle de Server</h1>
+<nav>
+    <a href="/">Inicio</a> |
+    <a href="/listServer">Lista de server</a>
+</nav>
+<hr>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>url</th>
+        <th>country server</th>
+        <th>domain</th>
+
+
+    </tr>
+    <tr>
+        <td><?php echo htmlspecialchars($server->getId()) ?></td>
+        <td><?php echo htmlspecialchars($server->getUrl()) ?></td>
+        <td><?php echo htmlspecialchars($server->getCountryServer()) ?></td>
+        <td><?php echo htmlspecialchars($server->getObservation()) ?></td>
+
+
+
+    </tr>
+</table>
+<hr>
+<h3>Acciones CRUD</h3>
+<ul>
+    <li><a href="/server/create">Insertar nueva tarea</a></li>
+    <li><a href="/server/update/<?php echo $server->getId() ?>">Actualizar este server</a></li>
+    <li><a href="/server/delete/<?php echo $server->getId() ?>">Eliminar este server</a></li>
+    <li><a href="/list">Volver al listado</a></li>
+</ul>
+</body>
+</html>

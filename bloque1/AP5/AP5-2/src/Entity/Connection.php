@@ -28,33 +28,20 @@ class Connection
     #[Column(name:'ip', type: 'string', length: 39)]
     private string $ip;
 
-    #[Column(name:'date_connection', type: 'datetime', nullable: true)]
-    private ?DateTime $date_connection = null;
+    #[Column(name:'date_connection', type: 'datetime')]
+    private DateTime $dateConnection ;
 
     #[ManyToOne(targetEntity: Server::class, inversedBy: 'connections')]
-    #[JoinColumn(name: 'server_id', referencedColumnName: 'id', nullable: false)]
+    #[JoinColumn(name: 'server_id', referencedColumnName: 'id')]
     private Server $server;
 
     #[ManyToOne(targetEntity: User::class, inversedBy: 'connections')]
-    #[JoinColumn(name: 'user_id', referencedColumnName: 'id', nullable: false)]
+    #[JoinColumn(name: 'user_id', referencedColumnName: 'id')]
     private User $user;
 
-    /**
-     * @return mixed
-     */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
-    }
-
-    public function getUser(): ?\AP52\Entity\User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?\AP52\Entity\User $user): void
-    {
-        $this->user = $user;
     }
 
     public function getIp(): string
@@ -67,24 +54,34 @@ class Connection
         $this->ip = $ip;
     }
 
-    public function getDateConnection(): ?DateTime
+    public function getDateConnection(): DateTime
     {
-        return $this->date_connection;
+        return $this->dateConnection;
     }
 
-    public function setDateConnection(?DateTime $date_connection): void
+    public function setDateConnection(DateTime $dateConnection): void
     {
-        $this->date_connection = $date_connection;
+        $this->dateConnection = $dateConnection;
     }
 
-    public function getServer(): ?\AP52\Entity\Server
+    public function getServer(): \AP52\Entity\Server
     {
         return $this->server;
     }
 
-    public function setServer(?\AP52\Entity\Server $server): void
+    public function setServer(\AP52\Entity\Server $server): void
     {
         $this->server = $server;
+    }
+
+    public function getUser(): \AP52\Entity\User
+    {
+        return $this->user;
+    }
+
+    public function setUser(\AP52\Entity\User $user): void
+    {
+        $this->user = $user;
     }
 
 

@@ -31,7 +31,7 @@ class Server
     private string $countryServer;
 
     #[Column(name:'observation', type:'text', nullable: true)]
-    private ?text $observation = null;
+    private ?string $observation = null;
 
     #[Column(name:'domain', type:'string', length: 250)]
     private string $domain;
@@ -69,12 +69,12 @@ class Server
         $this->countryServer = $countryServer;
     }
 
-    public function getObservation(): ?text
+    public function getObservation(): ?string
     {
         return $this->observation;
     }
 
-    public function setObservation(?text $observation): void
+    public function setObservation(?string $observation): void
     {
         $this->observation = $observation;
     }
