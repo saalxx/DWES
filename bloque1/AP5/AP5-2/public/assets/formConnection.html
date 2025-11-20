@@ -3,36 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $update ? 'Actualizar' : 'Nueva' ?> server</title>
+    <title><?php echo $update ? 'Actualizar' : 'Nueva' ?> connection</title>
 </head>
 <body>
-<h1><?php echo $update ? 'Actualizar' : 'Nueva' ?> server</h1>
+<h1><?php echo $update ? 'Actualizar' : 'Nueva' ?> connection</h1>
 <nav>
     <a href="/">Inicio</a> |
-    <a href="/listServer">Lista de server</a>
+    <a href="/listConnection">Lista de connection</a>
 </nav>
 <hr>
-<form action="<?php echo $update ? '/server/update/' . $server->getId() : '/server/create' ?>" method="POST">
+<form action="<?php echo $update ? '/connection/update/' . $connection->getId() : '/connection/create' ?>" method="POST">
     <?php if($update): ?>
-    <input type="hidden" name="id" value="<?php echo $server->getId() ?>">
+    <input type="hidden" name="id" value="<?php echo $connection->getId() ?>">
     <?php endif; ?>
 
-    <label for="url">:url</label><br>
-    <input type="text" name="url" id="url"
-           value="<?php echo $update ? htmlspecialchars($server->getUrl()) : '' ?>"
+    <label for="ip">:ip</label><br>
+    <input type="text" name="ip" id="ip"
+           value="<?php echo $update ? htmlspecialchars($connection->getIp()) : '' ?>"
            required maxlength="255" size="100"><br><br>
 
-    <label for="countryServer">countryServer:</label><br>
-    <textarea name="countryServer" id="countryServer" rows="3" cols="100" required><?php echo $update ? htmlspecialchars($server->getCountryServer()) : '' ?></textarea><br><br>
+    <label for="dateConnection">dateConnection:</label><br>
+    <textarea name="dateConnection" id="dateConnection" rows="3" cols="100" required><?php echo $update ? htmlspecialchars($connection->getDateConnection()->format('d-m-Y')) : '' ?></textarea><br><br>
 
-    <label for="domain">domain</label><br>
-    <input type="text" name="domain" id="domain"
-           value="<?php echo $update ? htmlspecialchars($server->getDomain()) : '' ?>"
+    <label for="server">server</label><br>
+    <input type="text" name="server" id="server"
+           value="<?php echo $update ? htmlspecialchars($connection->getServer()->getUrl()) : '' ?>"
+           required maxlength="255" size="100"><br><br>
+
+    <label for="user">user</label><br>
+    <input type="text" name="user" id="user"
+           value="<?php echo $update ? htmlspecialchars($connection->getUser()->getCity()) : '' ?>"
            required maxlength="255" size="100"><br><br>
 
 
 
-    <button type="submit" name="submit" value="1"><?php echo $update ? 'Actualizar' : 'Crear' ?> server</button>
+    <button type="submit" name="submit" value="1"><?php echo $update ? 'Actualizar' : 'Crear' ?> connection</button>
     <?php if(!$update): ?>
     <button type="reset">Limpiar</button>
     <?php endif; ?>
