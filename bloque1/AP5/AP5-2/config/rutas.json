@@ -24,7 +24,7 @@
     "action": "crud"
   },
   "/listConnection": {
-    "controller": "ConnectionController",
+    "controller": "ServerController",
     "action": "list"
   }
 }

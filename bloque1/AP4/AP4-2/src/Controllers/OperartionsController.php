@@ -4,6 +4,11 @@ namespace AP42\Controllers;
 
 use AP42\Core\EntityManager;
 use AP42\Views\Detalle;
+<<<<<<< HEAD
+use AP42\Entity\Operation;
+=======
+use AP42\Entity\Operations;
+>>>>>>> origin/main
 use AP42\Entity\Operations;
 use AP42\Views\ListadoOperations;
 

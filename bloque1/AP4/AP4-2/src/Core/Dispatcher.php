@@ -32,9 +32,15 @@ class Dispatcher
     {
         //Verificamos que la ruta que hemos recibido está dentro de las rutás de la aplicación
         if (isset($this->routeList[$this->currentRequest->getRoute()])) {
+<<<<<<< HEAD
+            //Aqui dentro tenetemos un texto del tipo AP42\Controller\DetalleController
+            $controllerClass = "AP42\\Controllers\\" . $this->routeList[$this->currentRequest->getRoute()]["controller"];
+            //Es equivalente a $controller = new AP42\Controller\MainController o DetalleController;
+=======
             //Aqui dentro tenetemos un texto del tipo AP41\Controller\DetalleController
             $controllerClass = "AP42\\Controllers\\" . $this->routeList[$this->currentRequest->getRoute()]["controller"];
             //Es equivalente a $controller = new AP41\Controller\MainController o DetalleController;
+>>>>>>> origin/main
             $controller = new $controllerClass;
             //Es equivalente al texto main o detail
             $action = $this->routeList[$this->currentRequest->getRoute()]["action"];

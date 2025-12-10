@@ -5,6 +5,10 @@
       <sourceFolder url="file://$MODULE_DIR$/bloque1/AP3/AP3-3/src" isTestSource="false" packagePrefix="AP33" />
       <sourceFolder url="file://$MODULE_DIR$/bloque1/AP3/AP3-4/src" isTestSource="false" packagePrefix="AP33" />
       <sourceFolder url="file://$MODULE_DIR$/bloque1/AP3/ap3-3 Oscar/src" isTestSource="false" packagePrefix="AP33" />
+      <excludeFolder url="file://$MODULE_DIR$/bloque1/AP4/AP4-1-base-alumnos/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/bloque1/AP4/AP4-2/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/bloque3/AP7-1/var" />
+      <excludeFolder url="file://$MODULE_DIR$/bloque3/AP7-1/vendor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

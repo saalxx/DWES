@@ -3,37 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de connection</title>
+    <title>Listado de server</title>
 </head>
 <body>
-<h1>Listado de connection</h1>
+<h1>Listado de server</h1>
 <nav>
     <a href="/">Inicio</a> |
-    <a href="/listConnection">Lista de connection</a>
+    <a href="/listServer">Lista de server</a>
 </nav>
 <hr>
-<p><a href="/connection/create">➕ Crear Nueva connection</a></p>
+<p><a href="/server/create">➕ Crear Nueva usuario</a></p>
 <table border="1">
     <tr>
-        <th>ID</th>
-        <th>IP</th>
-        <th>dateConnection</th>
-        <th>server</th>
-        <th>user</th>
+        <th>url</th>
+        <th>countryServer</th>
+        <th>dominio</th>
 
     </tr>
-    <?php foreach ($connections as $connection): ?>
+    <?php foreach ($servers as $server): ?>
     <tr>
-        <td><?php echo htmlspecialchars($connection->getId()) ?></td>
-        <td><?php echo htmlspecialchars($connection->getIp()) ?></td>
-        <td><?php echo htmlspecialchars($connection->getDateConnection()->format('d-m-Y')) ?></td>
-        <td><?php echo htmlspecialchars($connection->getServer()->getUrl()) ?></td>
-        <td><?php echo htmlspecialchars($connection->getUser()->getCity()) ?></td>
+        <td><?php echo htmlspecialchars($server->getUrl())?></td>
+        <td><?php echo htmlspecialchars($server->getDomain()) ?></td>
 
         <td>
-            <a href="/connection/read/<?php echo $connection->getId() ?>">Ver Detalle</a> |
-            <a href="/connection/update/<?php echo $connection->getId() ?>">Actualizar</a> |
-            <a href="/connection/delete/<?php echo $connection->getId() ?>">Eliminar</a>
+            <a href="/server/read/<?php echo $server->getId() ?>">Ver Detalle</a> |
+            <a href="/server/update/<?php echo $server->getId() ?>">Actualizar</a> |
+            <a href="/server/delete/<?php echo $server->getId() ?>">Eliminar</a>
         </td>
     </tr>
     <?php endforeach; ?>

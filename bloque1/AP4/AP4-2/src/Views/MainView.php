@@ -1,6 +1,6 @@
 <?php
 
-namespace AP41\Views;
+namespace AP42\Views;
 
 class MainView
 {

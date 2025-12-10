@@ -28,15 +28,15 @@
         <td colspan="5">No hay conexiones registradas</td>
     </tr>
     <?php else: ?>
-    <?php foreach ($connections as $connection): ?>
-    <tr>
-        <td><?php echo htmlspecialchars($connection->getUser()->getName()) ?> <?php echo htmlspecialchars($connection->getUser()->getFirstSubname()) ?></td>
-        <td><?php echo htmlspecialchars($connection->getUser()->getEmail()) ?></td>
-        <td><?php echo htmlspecialchars($connection->getServer()->getUrl()) ?></td>
-        <td><?php echo htmlspecialchars($connection->getIp()) ?></td>
-        <td><?php echo htmlspecialchars($connection->getDateConnection()->format('d-m-Y H:i:s')) ?></td>
-    </tr>
-    <?php endforeach; ?>
+        <?php foreach ($connections as $connection): ?>
+        <tr>
+            <td><?php echo htmlspecialchars($connection->getUser()->getName()) ?> <?php echo htmlspecialchars($connection->getUser()->getFirstSubname()) ?></td>
+            <td><?php echo htmlspecialchars($connection->getUser()->getEmail()) ?></td>
+            <td><?php echo htmlspecialchars($connection->getServer()->getUrl()) ?></td>
+            <td><?php echo htmlspecialchars($connection->getIp()) ?></td>
+            <td><?php echo htmlspecialchars($connection->getDateConnection()->format('d-m-Y H:i:s')) ?></td>
+        </tr>
+        <?php endforeach; ?>
     <?php endif; ?>
 </table>
 <p><em>Nota: Las conexiones no se pueden actualizar ni eliminar según los requisitos del sistema.</em></p>

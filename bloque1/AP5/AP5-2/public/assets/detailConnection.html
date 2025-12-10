@@ -3,31 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle de Connection</title>
+    <title>Detalle de Server</title>
 </head>
 <body>
-<h1>Detalle de Connection</h1>
+<h1>Detalle de Server</h1>
 <nav>
     <a href="/">Inicio</a> |
-    <a href="/listConnection">Lista de connection</a>
+    <a href="/listServer">Lista de server</a>
 </nav>
 <hr>
 <table border="1">
     <tr>
         <th>ID</th>
-        <th>IP</th>
-        <th>dateConnection</th>
-        <th>server</th>
-        <th>user</th>
+        <th>url</th>
+        <th>country server</th>
+        <th>domain</th>
 
 
     </tr>
     <tr>
-        <td><?php echo htmlspecialchars($connection->getId()) ?></td>
-        <td><?php echo htmlspecialchars($connection->getIp()) ?></td>
-        <td><?php echo htmlspecialchars($connection->getDateConnection()->format('d-m-Y')) ?></td>
-        <td><?php echo htmlspecialchars($connection->getServer()->getUrl()) ?></td>
-        <td><?php echo htmlspecialchars($connection->getUser()->getCity()) ?></td>
+        <td><?php echo htmlspecialchars($server->getId()) ?></td>
+        <td><?php echo htmlspecialchars($server->getUrl()) ?></td>
+        <td><?php echo htmlspecialchars($server->getCountryServer()) ?></td>
+        <td><?php echo htmlspecialchars($server->getObservation()) ?></td>
 
 
 
@@ -36,10 +34,10 @@
 <hr>
 <h3>Acciones CRUD</h3>
 <ul>
-    <li><a href="/connection/create">Insertar nueva tarea</a></li>
-    <li><a href="/connection/update/<?php echo $connection->getId() ?>">Actualizar este connection</a></li>
-    <li><a href="/connection/delete/<?php echo $connection->getId() ?>">Eliminar este connection</a></li>
-    <li><a href="/listConnection">Volver al listado</a></li>
+    <li><a href="/server/create">Insertar nueva tarea</a></li>
+    <li><a href="/server/update/<?php echo $server->getId() ?>">Actualizar este server</a></li>
+    <li><a href="/server/delete/<?php echo $server->getId() ?>">Eliminar este server</a></li>
+    <li><a href="/list">Volver al listado</a></li>
 </ul>
 </body>
 </html>

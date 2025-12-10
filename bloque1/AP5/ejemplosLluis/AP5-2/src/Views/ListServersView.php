@@ -2,7 +2,7 @@
 
 namespace AP52\Views;
 
-class ListServersView
+class   ListServersView
 {
     public function render(array $servers)
     {
