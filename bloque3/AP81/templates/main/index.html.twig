@@ -10,8 +10,13 @@
 
     {% if not app.user %}
         <a href="{{ path('app_login') }}">Login</a>
+        <a href="{{ path('app_register') }}">Register</a>
     {% else %}
-        <a href="{{ path('app_logout') }}">Logout</a>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('app_user_index') }}">Gestión de usuarios</a>
+            <a href="{{ path('app_logout') }}">Cerrar sesión</a>
+        {% else %}
+            <a href="{{ path('app_logout') }}">Cerrar sesión</a>
+        {% endif %}
     {% endif %}
-
 {% endblock %}
