@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PlayerCard index{% endblock %}
+
+{% block body %}
+    <h1>PlayerCard index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+                <th>CurrentTeam</th>
+                <th>GoalsScored</th>
+                <th>CardsReceived</th>
+                <th>BirthDate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for player_card in player_cards %}
+            <tr>
+                <td>{{ player_card.id }}</td>
+                <td>{{ player_card.name }}</td>
+                <td>{{ player_card.surname }}</td>
+                <td>{{ player_card.age }}</td>
+                <td>{{ player_card.currentTeam }}</td>
+                <td>{{ player_card.goalsScored }}</td>
+                <td>{{ player_card.cardsReceived }}</td>
+                <td>{{ player_card.birthDate ? player_card.birthDate|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_player_card_show', {'id': player_card.id}) }}">show</a>
+                    <a href="{{ path('app_player_card_edit', {'id': player_card.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_player_card_new') }}">Create new</a>
+{% endblock %}
